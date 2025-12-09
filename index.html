@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Expert Maths & Science Tuition | Classes 5–8 — Mohit Srivastava</title>
+  <meta name="description" content="Small-batch Maths & Science tuition for Classes 5-8 (CBSE, ICSE & State Boards) in Indra Nagar, Vasant Vihar, Dehradun. Weekly tests, doubt-solving, personal attention.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap');
+    
+    :root {
+      --bg: linear-gradient(135deg, #f6fbff 0%, #eef7ff 100%);
+      --card: rgba(255, 255, 255, 0.95);
+      --accent: #0b6cf6;
+      --accent-light: #4a94ff;
+      --accent-2: #00b388;
+      --accent-2-light: #2cd9a8;
+      --accent-gradient: linear-gradient(135deg, #0b6cf6 0%, #00b388 100%);
+      --accent-gradient-hover: linear-gradient(135deg, #2d82ff 0%, #2cd9a8 100%);
+      --muted: #5a6c86;
+      --dark: #0a1a32;
+      --light-gray: #f8fafd;
+      --border: rgba(11, 108, 246, 0.1);
+      --shadow: rgba(11, 28, 60, 0.08);
+      --shadow-hover: rgba(11, 28, 60, 0.15);
+      --glass: rgba(255, 255, 255, 0.7);
+      --glow: 0 20px 40px rgba(11, 108, 246, 0.15);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Animated background elements */
+    .bg-blur-1, .bg-blur-2, .bg-blur-3 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      z-index: -1;
+      animation: float 20s infinite ease-in-out;
+    }
+    
+    .bg-blur-1 {
+      width: 500px;
+      height: 500px;
+      background: linear-gradient(135deg, rgba(11, 108, 246, 0.15), transparent);
+      top: -200px;
+      right: -200px;
+      animation-delay: 0s;
+    }
+    
+    .bg-blur-2 {
+      width: 400px;
+      height: 400px;
+      background: linear-gradient(135deg, rgba(0, 179, 136, 0.1), transparent);
+      bottom: -150px;
+      left: -150px;
+      animation-delay: -5s;
+    }
+    
+    .bg-blur-3 {
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(135deg, rgba(11, 108, 246, 0.1), rgba(0, 179, 136, 0.1));
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      animation-delay: -10s;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 32px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Header */
+    header {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 60px;
+      position: relative;
+      animation: slideInDown 0.8s ease-out;
+    }
+    
+    .logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 24px;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 800;
+      font-size: 42px;
+      box-shadow: var(--glow);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      /* Removed floating animation from logo */
+    }
+    
+    .logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      animation: shine 3s infinite;
+    }
+    
+    .header-content {
+      flex: 1;
+    }
+    
+    .header-content h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      font-family: 'Poppins', sans-serif;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .header-content h1::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+      animation: expandWidth 1s ease-out 0.5s forwards;
+      transform-origin: left;
+    }
+    
+    .lead {
+      color: var(--muted);
+      margin: 20px 0 0;
+      font-size: 18px;
+      max-width: 700px;
+      line-height: 1.8;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
+    }
+    
+    /* Badge */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+      backdrop-filter: blur(10px);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 32px rgba(11, 108, 246, 0.1);
+      border: 1px solid rgba(11, 108, 246, 0.1);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+    
+    .badge::before {
+      content: '✨';
+      font-size: 16px;
+    }
+    
+    /* Main Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    
+    /* Cards */
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 28px;
+      box-shadow: 0 20px 60px var(--shadow);
+      border: 1px solid var(--border);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out var(--delay, 0.1s) both;
+    }
+    
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: var(--accent-gradient);
+      transform: scaleY(0);
+      transform-origin: top;
+      animation: expandHeight 0.6s ease-out 0.4s forwards;
+    }
+    
+    .card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: translateX(-100%);
+    }
+    
+    .card:hover::after {
+      animation: shimmer 1s;
+    }
+    
+    .card:hover {
+      transform: translateY(-12px) scale(1.01);
+      box-shadow: 0 30px 80px var(--shadow-hover), 0 0 0 1px rgba(11, 108, 246, 0.1);
+    }
+    
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 28px 0 40px;
+    }
+    
+    .feat {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 16px;
+      font-size: 15px;
+      color: var(--dark);
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.5s ease-out calc(var(--index) * 0.1s + 0.6s) both;
+    }
+    
+    .feat::before {
+      content: '✓';
+      position: absolute;
+      top: 18px;
+      left: 16px;
+      color: var(--accent-2);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    .feat:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 12px 32px rgba(11, 108, 246, 0.15);
+      border-color: var(--accent-light);
+      background: linear-gradient(135deg, white, #f8fafd);
+    }
+    
+    .feat-content {
+      padding-left: 24px;
+    }
+    
+    /* Headings */
+    h2 {
+      font-size: 32px;
+      margin-bottom: 24px;
+      color: var(--dark);
+      position: relative;
+      display: inline-block;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent-gradient);
+      border-radius: 2px;
+      transform-origin: left;
+      animation: expandWidth 1s ease-out 0.8s forwards;
+    }
+    
+    h3 {
+      font-size: 24px;
+      margin: 32px 0 16px;
+      color: var(--dark);
+      font-family: 'Poppins', sans-serif;
+      animation: fadeInUp 0.5s ease-out 0.3s both;
+    }
+    
+    /* Lists */
+    ul {
+      margin: 0;
+      padding-left: 32px;
+      list-style: none;
+    }
+    
+    ul li {
+      margin-bottom: 14px;
+      padding-left: 32px;
+      position: relative;
+      animation: fadeInRight 0.5s ease-out calc(var(--index) * 0.1s + 0.5s) both;
+    }
+    
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      animation: bounceIn 0.5s ease-out calc(var(--index) * 0.1s + 0.5s) both;
+    }
+    
+    /* Price Section */
+    .price {
+      background: linear-gradient(135deg, rgba(11, 108, 246, 0.08), rgba(0, 179, 136, 0.05));
+      padding: 28px;
+      border-radius: 20px;
+      margin: 24px 0;
+      border: 1px solid rgba(11, 108, 246, 0.1);
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+    
+    .amount {
+      font-size: 48px;
+      font-weight: 800;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 8px;
+      animation: countUp 1.5s ease-out;
+    }
+    
+    .price small {
+      color: var(--muted);
+      font-size: 16px;
+      display: block;
+      margin-top: 4px;
+    }
+    
+    /* Buttons */
+    .cta {
+      display: flex;
+      gap: 16px;
+      margin: 32px 0;
+      flex-wrap: wrap;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 32px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 160px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+    }
+    
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: 0.5s;
+    }
+    
+    .btn:hover::before {
+      left: 100%;
+    }
+    
+    .btn-primary {
+      background: var(--accent-gradient);
+      color: white;
+      box-shadow: 0 12px 32px rgba(11, 108, 246, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 20px 48px rgba(11, 108, 246, 0.4);
+      background: var(--accent-gradient-hover);
+    }
+    
+    .btn-outline {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+      backdrop-filter: blur(10px);
+      color: var(--accent);
+      border: 2px solid var(--accent-light);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+    
+    .btn-outline:hover {
+      transform: translateY(-4px) scale(1.05);
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+      box-shadow: 0 16px 40px rgba(11, 108, 246, 0.25);
+    }
+    
+    /* Contact */
+    .contact {
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .contact::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gradient);
+      transition: width 0.3s ease;
+    }
+    
+    .contact:hover::after {
+      width: 100%;
+    }
+    
+    /* Note */
+    .note {
+      background: linear-gradient(135deg, rgba(11, 108, 246, 0.08), rgba(0, 179, 136, 0.05));
+      padding: 28px;
+      border-radius: 20px;
+      border-left: 6px solid var(--accent-2);
+      margin: 32px 0;
+      font-style: italic;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.6s ease-out 0.5s both;
+    }
+    
+    .note::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 80px;
+      color: var(--accent-light);
+      opacity: 0.1;
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    /* Location */
+    .location {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 24px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      margin: 24px 0;
+      border: 1px solid var(--border);
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .location::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 8px;
+      height: 100%;
+      background: var(--accent-gradient);
+    }
+    
+    .location-icon {
+      font-size: 32px;
+      color: var(--accent);
+      animation: bounce 2s infinite;
+    }
+    
+    .location-text h4 {
+      margin: 0 0 8px 0;
+      color: var(--dark);
+      font-size: 20px;
+    }
+    
+    .location-text p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 500;
+    }
+    
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+      animation: fadeInUp 0.8s ease-out 0.8s both;
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      padding: 24px 0;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.6));
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 24px 32px;
+      border: 1px solid var(--border);
+    }
+    
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      
+      .container {
+        padding: 32px 24px;
+      }
+      
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+      
+      .logo {
+        width: 100px;
+        height: 100px;
+        font-size: 36px;
+      }
+      
+      .header-content h1 {
+        font-size: 32px;
+      }
+      
+      .lead {
+        font-size: 16px;
+      }
+      
+      .features {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn {
+        min-width: 140px;
+        padding: 16px 28px;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 24px 16px;
+      }
+      
+      .card {
+        padding: 32px 24px;
+      }
+      
+      .header-content h1 {
+        font-size: 28px;
+      }
+      
+      .lead {
+        font-size: 15px;
+      }
+      
+      .cta {
+        flex-direction: column;
+      }
+      
+      .btn {
+        width: 100%;
+      }
+    }
+    
+    /* Animations */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      33% { transform: translateY(-20px) rotate(120deg); }
+      66% { transform: translateY(20px) rotate(240deg); }
+    }
+    
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      50%, 100% { transform: translateX(100%); }
+    }
+    
+    @keyframes expandWidth {
+      from { width: 0; }
+      to { width: 100px; }
+    }
+    
+    @keyframes expandHeight {
+      from { transform: scaleY(0); }
+      to { transform: scaleY(1); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-10px);}
+      60% {transform: translateY(-5px);}
+    }
+    
+    @keyframes bounceIn {
+      from, 20%, 40%, 60%, 80%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1);
+      }
+      0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+      20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+      }
+      40% {
+        transform: scale3d(0.9, 0.9, 0.9);
+      }
+      60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+      }
+      80% {
+        transform: scale3d(0.97, 0.97, 0.97);
+      }
+      to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+      }
+    }
+    
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    @keyframes countUp {
+      0% { opacity: 0; transform: scale(0.8); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes slideInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-60px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Floating elements - removed from logo */
+    .floating {
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .delay-1 { animation-delay: 1s; }
+    .delay-2 { animation-delay: 2s; }
+    .delay-3 { animation-delay: 3s; }
+    
+    /* Star ratings animation */
+    .stars {
+      display: flex;
+      gap: 4px;
+      margin: 16px 0;
+      animation: fadeInUp 0.6s ease-out 0.7s both;
+    }
+    
+    .star {
+      color: #FFD700;
+      font-size: 20px;
+      animation: twinkle 2s infinite;
+    }
+    
+    .star:nth-child(2) { animation-delay: 0.2s; }
+    .star:nth-child(3) { animation-delay: 0.4s; }
+    .star:nth-child(4) { animation-delay: 0.6s; }
+    .star:nth-child(5) { animation-delay: 0.8s; }
+    
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.7; transform: scale(0.9); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated background elements -->
+  <div class="bg-blur-1"></div>
+  <div class="bg-blur-2"></div>
+  <div class="bg-blur-3"></div>
+  
+  <div class="container">
+    <header>
+      <!-- Removed floating class from logo div -->
+      <div class="logo">MS</div>
+      <div class="header-content">
+        <div class="badge">✨ Limited Seats • Small Batches • Personal Attention ✨</div>
+        <h1>Expert Maths & Science Tuition — Classes 5 to 8</h1>
+        <p class="lead">Experienced teacher Mohit Srivastava | CBSE, ICSE & State Boards | Small batches • Weekly tests • Doubt-solving • Performance Tracking</p>
+      </div>
+    </header>
+
+    <main class="grid" aria-labelledby="mainheading">
+      <section>
+        <div class="card" style="--delay: 0.2s">
+          <h2 id="mainheading">Why Choose My Classes?</h2>
+          
+          <div class="stars">
+            <div class="star">★</div>
+            <div class="star">★</div>
+            <div class="star">★</div>
+            <div class="star">★</div>
+            <div class="star">★</div>
+          </div>
+          
+          <div class="features" aria-hidden>
+            <div class="feat" style="--index: 0">
+              <div class="feat-content">Clear, concept-first teaching</div>
+            </div>
+            <div class="feat" style="--index: 1">
+              <div class="feat-content">Step-by-step problem solving</div>
+            </div>
+            <div class="feat" style="--index: 2">
+              <div class="feat-content">Small batch — personal attention</div>
+            </div>
+            <div class="feat" style="--index: 3">
+              <div class="feat-content">Weekly tests & performance reports</div>
+            </div>
+            <div class="feat" style="--index: 4">
+              <div class="feat-content">Special doubt-solving sessions</div>
+            </div>
+            <div class="feat" style="--index: 5">
+              <div class="feat-content">Exam strategies & board-focused practice</div>
+            </div>
+          </div>
+
+          <h3>Class Details</h3>
+          <ul>
+            <li style="--index: 0"><strong>Subjects:</strong> Mathematics & Science</li>
+            <li style="--index: 1"><strong>Classes:</strong> 5, 6, 7 &amp; 8</li>
+            <li style="--index: 2"><strong>Boards:</strong> CBSE, ICSE &amp; State Boards</li>
+            <li style="--index: 3"><strong>Batch Size:</strong> <span style="background: linear-gradient(135deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: 700;">8-10 students max</span></li>
+          </ul>
+
+          <h3>What Students Get</h3>
+          <ul>
+            <li style="--index: 0">Simple notes & solved examples</li>
+            <li style="--index: 1">Weekly practice tests</li>
+            <li style="--index: 2">Homework & exercise tracking</li>
+            <li style="--index: 3">Friendly environment to build confidence</li>
+          </ul>
+
+          <div class="location">
+            <div class="location-icon">📍</div>
+            <div class="location-text">
+              <h4>Convenient Location</h4>
+              <p>Indra Nagar, Vasant Vihar, Dehradun</p>
+            </div>
+          </div>
+
+          <div class="note">
+            "Turn confusion into confidence — focused teaching that makes tough topics feel easy and approachable."
+          </div>
+
+          <h3>How to Enroll</h3>
+          <p style="font-size: 18px; margin-top: 16px;">Call or WhatsApp: <a class="contact" href="tel:+919621911334">+91 96219 11334</a></p>
+        </div>
+
+        <div style="margin-top: 40px;" class="card" style="--delay: 0.3s">
+          <h3>Trust & Credibility</h3>
+          <p style="margin: 20px 0 0; color: var(--muted); line-height: 1.8; font-size: 16px;">
+            Focused on building strong fundamentals and boosting student confidence through personalized attention in small batches. Serving the Dehradun community with quality education.
+          </p>
+          <div class="stars" style="margin-top: 24px;">
+            <div class="star">★</div>
+            <div class="star">★</div>
+            <div class="star">★</div>
+            <div class="star">★</div>
+            <div class="star">★</div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card" style="--delay: 0.4s">
+          <h3>Fee Structure</h3>
+          
+          <div class="price">
+            <div class="amount">₹2,000 <span style="font-weight:500; font-size:18px; opacity: 0.8;">per session</span></div>
+            <small>One session = 1 hour 30 minutes of focused teaching</small>
+          </div>
+
+          <div style="height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 32px 0;"></div>
+
+          <h4>Available Packages</h4>
+          <ul>
+            <li style="--index: 0"><strong>Weekly (4 sessions/month):</strong> <span style="color: var(--accent); font-weight: 700;">₹7,600</span></li>
+            <li style="--index: 1"><strong>Bi-weekly (8 sessions/month):</strong> <span style="color: var(--accent); font-weight: 700;">₹15,200</span></li>
+          </ul>
+
+          <div class="cta">
+            <a class="btn btn-primary" href="tel:+919621911334">
+              <span style="font-size: 20px; animation: bounce 2s infinite;">📞</span> Call Now
+            </a>
+            <a class="btn btn-outline" href="https://wa.me/919621911334" target="_blank" rel="noopener">
+              <span style="font-size: 20px; animation: bounce 2s infinite delay-1;">💬</span> WhatsApp
+            </a>
+          </div>
+
+          <p style="margin-top: 28px; padding: 24px; background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7)); backdrop-filter: blur(10px); border-radius: 16px; font-size: 15px; color: var(--muted); border: 1px solid var(--border);">
+            <strong style="color: var(--accent);">📍 Location:</strong> Indra Nagar, Vasant Vihar, Dehradun<br>
+            <strong style="color: var(--accent);">👨‍🏫 Teacher:</strong> Mohit Srivastava<br>
+            <strong style="color: var(--accent);">📚 Classes:</strong> 5–8 • Mathematics &amp; Science<br>
+            <strong style="color: var(--accent);">⏰ Timings:</strong> Flexible slots available
+          </p>
+        </div>
+
+        <div style="margin-top: 40px;" class="card" style="--delay: 0.5s">
+          <h4>Quick Pitch for Parents</h4>
+          <p style="margin: 20px 0 0; color: var(--muted); line-height: 1.8; font-size: 16px;">
+            <strong style="background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 20px;">"Simple lessons. Better scores. Confident students."</strong><br><br>
+            Join today and watch your child transform from being confused to confident in Maths & Science. Limited seats available for personalized attention.
+          </p>
+          
+          <div class="cta" style="margin-top: 32px;">
+            <a class="btn btn-primary" href="tel:+919621911334" style="width: 100%; justify-content: center; padding: 20px 32px; font-size: 18px;">
+              <span style="font-size: 22px;">🚀</span> Enroll Now
+            </a>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <small style="display: flex; align-items: center; gap: 12px; font-size: 15px;">
+          <span style="color: var(--accent); font-weight: 700;">📞 Contact:</span>
+          <a href="tel:+919621911334" class="contact">+91 96219 11334</a>
+          <span style="color: var(--accent); margin: 0 8px;">•</span>
+          <span style="color: var(--accent); font-weight: 700;">👨‍🏫 Teacher:</strong>
+          <strong>Mohit Srivastava</strong>
+        </small>
+        <small style="font-size: 15px; text-align: center;">
+          © <script>document.write(new Date().getFullYear())</script> Mohit Srivastava — Excellence in Education for Classes 5–8 • Indra Nagar, Vasant Vihar, Dehradun
+        </small>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Enhanced animations with GSAP-like effects
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add index to list items for staggered animations
+      document.querySelectorAll('ul li').forEach((li, index) => {
+        li.style.setProperty('--index', index);
+      });
+      
+      // Add index to feature cards
+      document.querySelectorAll('.feat').forEach((feat, index) => {
+        feat.style.setProperty('--index', index);
+      });
+      
+      // Parallax effect on scroll
+      window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        const bg1 = document.querySelector('.bg-blur-1');
+        const bg2 = document.querySelector('.bg-blur-2');
+        
+        if (bg1) bg1.style.transform = `translateY(${scrolled * 0.05}px) rotate(${scrolled * 0.02}deg)`;
+        if (bg2) bg2.style.transform = `translateY(${scrolled * 0.03}px) rotate(${-scrolled * 0.015}deg)`;
+      });
+      
+      // Add floating animation to elements on hover (except logo)
+      document.querySelectorAll('.card, .btn').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+          this.style.transform = this.style.transform + ' rotate(1deg)';
+        });
+        
+        element.addEventListener('mouseleave', function() {
+          this.style.transform = this.style.transform.replace(' rotate(1deg)', '');
+        });
+      });
+      
+      // Add ripple effect to buttons
+      document.querySelectorAll('.btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+          const ripple = document.createElement('span');
+          const rect = this.getBoundingClientRect();
+          const size = Math.max(rect.width, rect.height);
+          const x = e.clientX - rect.left - size / 2;
+          const y = e.clientY - rect.top - size / 2;
+          
+          ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            width: ${size}px;
+            height: ${size}px;
+            top: ${y}px;
+            left: ${x}px;
+            pointer-events: none;
+          `;
+          
+          this.appendChild(ripple);
+          
+          setTimeout(() => ripple.remove(), 600);
+        });
+      });
+      
+      // Add CSS for ripple animation
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes ripple {
+          to {
+            transform: scale(4);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      // Animate numbers counting up
+      const amountElement = document.querySelector('.amount');
+      if (amountElement) {
+        const originalText = amountElement.textContent;
+        amountElement.textContent = '₹0';
+        
+        setTimeout(() => {
+          let current = 0;
+          const target = 2000;
+          const duration = 1500;
+          const step = target / (duration / 16);
+          
+          const counter = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(counter);
+            }
+            amountElement.textContent = `₹${Math.floor(current)}`;
+          }, 16);
+        }, 800);
+      }
+      
+      // Add current year to footer
+      document.querySelector('footer small:last-child').innerHTML = 
+        `© ${new Date().getFullYear()} Mohit Srivastava — Excellence in Education for Classes 5–8 • Indra Nagar, Vasant Vihar, Dehradun`;
+    });
+    
+    // Add scroll reveal animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    document.querySelectorAll('.card, h2, h3, .features, .price, .cta').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
